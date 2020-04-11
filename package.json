@@ -2,7 +2,7 @@
   "name": "electron-gatsby-boilerplate",
   "version": "1.0.0",
   "description": "A Starter Boilerplate for Electron with Gatsby",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,5 +12,8 @@
     "gatsby": "^2.20.18",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "electron": "^8.2.1"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "name": "electron-gatsby-boilerplate",
+  "version": "1.0.0",
+  "description": "A Starter Boilerplate for Electron with Gatsby",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zonayed Ahmed",
+  "license": "MIT",
+  "dependencies": {
+    "gatsby": "^2.20.18",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

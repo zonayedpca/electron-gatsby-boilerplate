@@ -2,7 +2,7 @@ const path = require(`path`);
 const fs = require(`fs`);
 
 const extractPath = (fileName) => {
-  if (fileName === "index.jsx") {
+  if (fileName === "index.js") {
     return "/";
   }
   return fileName.split(".").slice(0, -1).join(".");
@@ -21,11 +21,11 @@ const readFiles = (directoryPath) => {
 
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
-  const screensDir = path.join(__dirname, `app/screens`);
+  const screensDir = path.join(__dirname, `client/screens`);
   return readFiles(screensDir)
     .then((files) => {
       return files.forEach((file) => {
-        const component = path.resolve(`app/screens/${file}`);
+        const component = path.resolve(`client/screens/${file}`);
         createPage({
           path: extractPath(file),
           component,

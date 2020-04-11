@@ -1,21 +1,24 @@
-const { app, BrowserWindow } = require("electron");
-const path = require("path");
+const { BrowserWindow, shell, app } = require("electron");
 
-function createWindow() {
-  const mainWindow = new BrowserWindow({
-    width: 400,
-    height: 400,
-  });
+const WINDOW_URL = "http://localhost:8000";
 
-  mainWindow.loadFile("../public/index.html");
+class MainWindow extends BrowserWindow {
+  constructor(config, windowUrl) {
+    super(config);
+    this.loadURL(windowUrl);
+  }
 }
 
-app.whenReady().then(createWindow);
-
-app.on("window-all-closed", function () {
-  if (process.platform !== "darwin") app.quit();
-});
-
-app.on("activate", function () {
-  if (BrowserWindow.getAllWindows().length === 0) createWindow();
+let mainWindow;
+app.on("ready", () => {
+  mainWindow = new MainWindow(
+    {
+      height: 420,
+      width: 360,
+      webPreferences: {
+        nodeIntegration: true,
+      },
+    },
+    WINDOW_URL
+  );
 });

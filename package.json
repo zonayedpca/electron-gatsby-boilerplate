@@ -5,7 +5,9 @@
   "main": "app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "electron": "electron .",
+    "client": "gatsby develop",
+    "start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:8000 && npm run electron\""
   },
   "author": "Zonayed Ahmed",
   "license": "MIT",
@@ -15,6 +17,9 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "electron": "^8.2.1"
+    "concurrently": "^5.1.0",
+    "cross-env": "^7.0.2",
+    "electron": "^8.2.1",
+    "wait-on": "^4.0.2"
   }
 }

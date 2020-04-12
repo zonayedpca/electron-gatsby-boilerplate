@@ -42,8 +42,8 @@
 		"wait-on": "^4.0.2"
 	},
 	"np": {
-		"publish": false,
-		"releaseDraft": false
+		"publish": true,
+		"releaseDraft": true
 	},
 	"build": {
 		"appId": "com.company.electronGatsbyBoilerplate",

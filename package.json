@@ -6,10 +6,15 @@
   "main": "app/index.js",
   "repository": "zonayedpca/electron-gatsby-boilerplate",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "electron": "electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "lint": "xo",
+    "test": "npm run lint",
     "client": "gatsby develop",
-    "start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:8000 && npm run electron\""
+    "electron": "electron .",
+    "start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:8000 && npm run electron\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --macos --linux --windows",
+    "release": "np"
   },
   "author": {
     "name": "Zonayed Ahmed",
@@ -29,6 +34,7 @@
     "cross-env": "^7.0.2",
     "electron": "^8.2.1",
     "electron-builder": "^22.4.1",
+    "np": "^6.2.0",
     "wait-on": "^4.0.2",
     "xo": "^0.29.0"
   },
@@ -64,7 +70,7 @@
         "AppImage",
         "deb"
       ],
-      "category": "Genral;Tools"
+      "category": "General;Tools"
     }
   }
 }

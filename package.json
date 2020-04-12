@@ -9,10 +9,11 @@
 		"postinstall": "electron-builder install-app-deps",
 		"test": "npm run lint",
 		"client": "gatsby develop",
+		"build-client": "gatsby build",
 		"electron": "electron .",
 		"start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:8000 && npm run electron\"",
 		"pack": "electron-builder --dir",
-		"dist": "electron-builder --macos --linux --windows",
+		"dist": "npm run build-client && electron-builder --macos --linux --windows",
 		"release": "np"
 	},
 	"author": {
@@ -42,6 +43,10 @@
 			"node",
 			"browser"
 		]
+	},
+	"np": {
+		"publish": false,
+		"releaseDraft": false
 	},
 	"build": {
 		"appId": "com.company.electronGatsbyBoilerplate",

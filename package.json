@@ -8,6 +8,7 @@
 	"scripts": {
 		"postinstall": "electron-builder install-app-deps",
 		"test": "npm run lint",
+		"lint": "eslint .",
 		"client": "gatsby develop",
 		"build-client": "gatsby build",
 		"electron": "electron .",
@@ -31,18 +32,14 @@
 		"redux": "^4.0.5"
 	},
 	"devDependencies": {
+		"eslint": "^6.7.2",
 		"concurrently": "^5.1.0",
 		"cross-env": "^7.0.2",
 		"electron": "^8.2.1",
 		"electron-builder": "^22.4.1",
+		"eslint-config-airbnb": "^18.1.0",
 		"np": "^6.2.0",
 		"wait-on": "^4.0.2"
-	},
-	"xo": {
-		"envs": [
-			"node",
-			"browser"
-		]
 	},
 	"np": {
 		"publish": false,

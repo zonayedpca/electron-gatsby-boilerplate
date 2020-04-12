@@ -21,7 +21,7 @@ export default () => {
 				<div>
 					<img style={{ height: 45 }} alt="Electron Logo" src={electronLogo} />
 				</div>
-				<p>Open Up file > something</p>
+				<p>Open Up file something</p>
 			</div>
 		</Layout>
 	);

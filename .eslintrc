@@ -1,0 +1,22 @@
+{
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"rules": {
+		"semi": 2,
+		"eqeqeq": "off",
+		"curly": "error",
+		"quotes": ["error", "double"]
+	},
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"globals": {
+		"mainWindow": true
+	}
+}

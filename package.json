@@ -1,76 +1,75 @@
 {
-  "name": "electron-gatsby-boilerplate",
-  "productName": "Electron Gatsby Boilerplate",
-  "version": "0.0.0",
-  "description": "A Starter Boilerplate for Electron with Gatsby",
-  "main": "app/index.js",
-  "repository": "zonayedpca/electron-gatsby-boilerplate",
-  "scripts": {
-    "postinstall": "electron-builder install-app-deps",
-    "lint": "xo",
-    "test": "npm run lint",
-    "client": "gatsby develop",
-    "electron": "electron .",
-    "start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:8000 && npm run electron\"",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder --macos --linux --windows",
-    "release": "np"
-  },
-  "author": {
-    "name": "Zonayed Ahmed",
-    "email": "contact@zonayed.me",
-    "url": "https://zonayed.me"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "gatsby": "^2.20.18",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
-    "redux": "^4.0.5"
-  },
-  "devDependencies": {
-    "concurrently": "^5.1.0",
-    "cross-env": "^7.0.2",
-    "electron": "^8.2.1",
-    "electron-builder": "^22.4.1",
-    "np": "^6.2.0",
-    "wait-on": "^4.0.2",
-    "xo": "^0.29.0"
-  },
-  "xo": {
-    "envs": [
-      "node",
-      "browser"
-    ]
-  },
-  "build": {
-    "appId": "com.company.electronGatsbyBoilerplate",
-    "mac": {
-      "category": "public.app-category.general-tools",
-      "darkModeSupport": true
-    },
-    "dmg": {
-      "iconSize": 160,
-      "contents": [
-        {
-          "x": 180,
-          "y": 170
-        },
-        {
-          "x": 480,
-          "y": 170,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ]
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ],
-      "category": "General;Tools"
-    }
-  }
+	"name": "electron-gatsby-boilerplate",
+	"productName": "Electron Gatsby Boilerplate",
+	"version": "0.0.0",
+	"description": "A Starter Boilerplate for Electron with Gatsby",
+	"main": "app/index.js",
+	"repository": "zonayedpca/electron-gatsby-boilerplate",
+	"scripts": {
+		"postinstall": "electron-builder install-app-deps",
+		"test": "npm run lint",
+		"client": "gatsby develop",
+		"electron": "electron .",
+		"start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:8000 && npm run electron\"",
+		"pack": "electron-builder --dir",
+		"dist": "electron-builder --macos --linux --windows",
+		"release": "np"
+	},
+	"author": {
+		"name": "Zonayed Ahmed",
+		"email": "contact@zonayed.me",
+		"url": "https://zonayed.me"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"electron-util": "^0.14.0",
+		"gatsby": "^2.20.18",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-redux": "^7.2.0",
+		"redux": "^4.0.5"
+	},
+	"devDependencies": {
+		"concurrently": "^5.1.0",
+		"cross-env": "^7.0.2",
+		"electron": "^8.2.1",
+		"electron-builder": "^22.4.1",
+		"np": "^6.2.0",
+		"wait-on": "^4.0.2"
+	},
+	"xo": {
+		"envs": [
+			"node",
+			"browser"
+		]
+	},
+	"build": {
+		"appId": "com.company.electronGatsbyBoilerplate",
+		"mac": {
+			"category": "public.app-category.general-tools",
+			"darkModeSupport": true
+		},
+		"dmg": {
+			"iconSize": 160,
+			"contents": [
+				{
+					"x": 180,
+					"y": 170
+				},
+				{
+					"x": 480,
+					"y": 170,
+					"type": "link",
+					"path": "/Applications"
+				}
+			]
+		},
+		"linux": {
+			"target": [
+				"AppImage",
+				"deb"
+			],
+			"category": "General;Tools"
+		}
+	}
 }

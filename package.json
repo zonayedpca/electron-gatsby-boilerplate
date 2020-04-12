@@ -1,15 +1,21 @@
 {
   "name": "electron-gatsby-boilerplate",
-  "version": "1.0.0",
+  "productName": "Electron Gatsby Boilerplate",
+  "version": "0.0.0",
   "description": "A Starter Boilerplate for Electron with Gatsby",
   "main": "app/index.js",
+  "repository": "zonayedpca/electron-gatsby-boilerplate",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "electron": "electron .",
     "client": "gatsby develop",
     "start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:8000 && npm run electron\""
   },
-  "author": "Zonayed Ahmed",
+  "author": {
+    "name": "Zonayed Ahmed",
+    "email": "contact@zonayed.me",
+    "url": "https://zonayed.me"
+  },
   "license": "MIT",
   "dependencies": {
     "gatsby": "^2.20.18",
@@ -22,6 +28,14 @@
     "concurrently": "^5.1.0",
     "cross-env": "^7.0.2",
     "electron": "^8.2.1",
-    "wait-on": "^4.0.2"
+    "electron-builder": "^22.4.1",
+    "wait-on": "^4.0.2",
+    "xo": "^0.29.0"
+  },
+  "xo": {
+    "envs": [
+      "node",
+      "browser"
+    ]
   }
 }

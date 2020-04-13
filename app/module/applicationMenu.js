@@ -1,4 +1,4 @@
-const { Menu } = require("electron");
+const { Menu, shell } = require("electron");
 const { is } = require("electron-util");
 
 const isMac = is.macos;
@@ -89,7 +89,6 @@ const template = (aboutWindow, starWindow) => [
 			{
 				label: "Learn More",
 				click: async () => {
-					const { shell } = require("electron");
 					await shell.openExternal("https://electronjs.org");
 				},
 			},

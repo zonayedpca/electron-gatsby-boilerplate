@@ -1,4 +1,7 @@
 const { BrowserWindow, app } = require("electron");
+const { is } = require("electron-util");
+
+console.log(is);
 
 const WINDOW_URL = "http://localhost:8000";
 

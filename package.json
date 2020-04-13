@@ -1,7 +1,7 @@
 {
 	"name": "electron-gatsby-boilerplate",
 	"productName": "Electron Gatsby Boilerplate",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "A Starter Boilerplate for Electron with Gatsby",
 	"main": "app/index.js",
 	"repository": "zonayedpca/electron-gatsby-boilerplate",
@@ -42,7 +42,7 @@
 		"wait-on": "^4.0.2"
 	},
 	"np": {
-		"publish": true,
+		"publish": "always",
 		"releaseDraft": true
 	},
 	"build": {

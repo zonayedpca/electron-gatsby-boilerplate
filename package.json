@@ -14,7 +14,7 @@
 		"electron": "electron .",
 		"start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:8000 && npm run electron\"",
 		"pack": "electron-builder --dir",
-		"dist": "npm run build-client && electron-builder --macos --linux --windows",
+		"dist": "npm run build-client && electron-builder --macos --linux --windows --publish always",
 		"release": "np"
 	},
 	"author": {
@@ -42,7 +42,7 @@
 		"wait-on": "^4.0.2"
 	},
 	"np": {
-		"publish": "always",
+		"publish": true,
 		"releaseDraft": true
 	},
 	"build": {

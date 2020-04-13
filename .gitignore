@@ -122,6 +122,6 @@ thumb
 sketch
 
 # Gatsby
-/public
+public
 
 # End of https://www.gitignore.io/api/node,react

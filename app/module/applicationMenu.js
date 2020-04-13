@@ -3,7 +3,7 @@ const { is } = require("electron-util");
 
 const isMac = is.macos;
 
-const template = [
+const template = (aboutWindow, starWindow) => [
 	// { role: 'appMenu' }
 	...(isMac
 		? [
@@ -100,12 +100,15 @@ const template = [
 		submenu: [
 			{
 				label: "About this Project",
+				click: aboutWindow,
 			},
 			{
 				label: "Star this Project",
+				click: starWindow,
 			},
 		],
 	},
 ];
 
-module.exports = Menu.buildFromTemplate(template);
+module.exports = (aboutWindow, starWindow) =>
+	Menu.buildFromTemplate(template(aboutWindow, starWindow));

@@ -10,9 +10,9 @@ const Counter = () => {
 	const dispatch = useDispatch();
 	return (
 		<div className="counter-container">
-			<button onClick={() => dispatch(incrementCounter())}>➖</button>
+			<button onClick={() => dispatch(decrementCounter())}>➖</button>
 			<h4>{counter.count}</h4>
-			<button onClick={() => dispatch(decrementCounter())}>➕</button>
+			<button onClick={() => dispatch(incrementCounter())}>➕</button>
 		</div>
 	);
 };

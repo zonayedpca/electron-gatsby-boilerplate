@@ -4,3 +4,16 @@
 	justify-content: center;
 	margin: 10px 0;
 }
+
+.counter-container h4 {
+	font-size: 72px;
+	font-family: monospace;
+}
+
+.counter-container button {
+	border: none;
+	padding: 5px;
+	border-radius: 50px;
+	margin: 0 15px;
+	cursor: pointer;
+}

@@ -2,7 +2,9 @@ const path = require("path");
 const { is } = require("electron-util");
 
 module.exports = (screen = "") => {
-	const localPublicPath = path.resolve(__dirname, "../../public");
+	const indexLocation =
+		screen === "index" ? "index.html" : `${screen}/index.html`;
+	const localPublicPath = `file://${__dirname}/client/public/${indexLocation}`;
 	return is.development
 		? `http://localhost:8000/${screen}`
 		: `${localPublicPath}.html`;

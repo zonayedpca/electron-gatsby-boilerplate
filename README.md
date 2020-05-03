@@ -40,3 +40,6 @@ You can also configure [np](https://www.npmjs.com/package/np) inside ```package.
 },
 ...
 ```
+
+# Development
+You are welcome to make a PR for any kind of improvement of this project. If you find any issue, [let us know](https://github.com/zonayedpca/electron-gatsby-boilerplate/issues/new). Thank You!

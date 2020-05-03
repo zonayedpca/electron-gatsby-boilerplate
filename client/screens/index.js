@@ -20,7 +20,10 @@ export default () => {
 					<img style={{ height: 45 }} alt="Electron Logo" src={electronLogo} />
 				</div>
 				<Counter />
-				<p>Open Up file something</p>
+				<p>Menu ➡ Screens</p>
+				<p>
+					Edit the Screen from <strong>screens</strong> and see the magic!
+				</p>
 			</div>
 		</Layout>
 	);

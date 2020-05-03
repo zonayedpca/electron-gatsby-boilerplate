@@ -15,4 +15,4 @@ npm install
 npm start
 ```
 And now you'll see a running desktop application on your screen:
-![Screenshot](https://ibb.co/kMxGjRW)
+![screenshot](https://user-images.githubusercontent.com/18544717/80925067-b8a70180-8dae-11ea-98bc-e5b459a846f8.png)

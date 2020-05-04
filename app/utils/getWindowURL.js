@@ -7,5 +7,5 @@ module.exports = (screen = "", port) => {
 	const localPublicPath = `file://${__dirname}/client/public/${indexLocation}`;
 	return is.development
 		? `http://localhost:8000/${screen}`
-		: `${localPublicPath}.html`;
+		: `http://localhost:30000/${screen}`;
 };

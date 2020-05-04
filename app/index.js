@@ -40,6 +40,8 @@ const starWindow = () => {
 };
 
 const getFreePort = (port, cb) => {
+	const dir = path.join(__dirname, "..", "public");
+	const file = new nodeStatic.Server(dir);
 	const connection = net.createConnection({ port: port });
 	connection.on("connect", () => {
 		connection.destroy();
@@ -50,8 +52,6 @@ const getFreePort = (port, cb) => {
 			.createServer((req, res) => {
 				req
 					.addListener("end", function () {
-						const rootDir = path.join(__dirname, "..");
-						const file = new nodeStatic.Server(rootDir);
 						file.serve(req, res);
 					})
 					.resume();

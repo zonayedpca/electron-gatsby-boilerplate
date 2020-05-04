@@ -26,6 +26,7 @@
 	"dependencies": {
 		"electron-util": "^0.14.0",
 		"gatsby": "^2.20.18",
+		"node-static": "^0.7.11",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-redux": "^7.2.0",

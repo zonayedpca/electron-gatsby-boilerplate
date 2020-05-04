@@ -1,7 +1,7 @@
 const path = require("path");
 const { is } = require("electron-util");
 
-module.exports = (screen = "") => {
+module.exports = (screen = "", port) => {
 	const indexLocation =
 		screen === "index" ? "index.html" : `${screen}/index.html`;
 	const localPublicPath = `file://${__dirname}/client/public/${indexLocation}`;

@@ -2,31 +2,26 @@ const net = require("net");
 const http = require("http");
 const path = require("path");
 const nodeStatic = require("node-static");
-const { BrowserWindow, app, Menu } = require("electron");
+const { app } = require("electron");
 
-const { getWindowURL, findPort } = require("./utils");
+const { findPort } = require("./utils");
 
-const mainWindowMenu = require("./menu/main-window-menu");
-
+const mainWindow = require("./window/main-window");
 const aboutWindow = require("./window/about-window");
+const starWindow = require("./window/star-window");
 
 let EGB_RENDERER_PORT;
 let SERVER_CONNECTION;
 
-let holdMainWindowOnMemory;
 let holdAboutWindowOnMemory = aboutWindow.bind(null, EGB_RENDERER_PORT);
-let holdStarWindowOnMemory;
+let holdStarWindowOnMemory = starWindow.bind(null, EGB_RENDERER_PORT);
+let holdMainWindowOnMemory = mainWindow.bind(null, EGB_RENDERER_PORT, [
+	holdAboutWindowOnMemory,
+	holdStarWindowOnMemory,
+]);
 
 const getPort = async () => {
 	const port = await findPort(30000, 40000);
-};
-
-const starWindow = () => {
-	holdStarWindowOnMemory = new BrowserWindow({
-		height: 300,
-		width: 500,
-	});
-	holdStarWindowOnMemory.loadURL(getWindowURL("star", EGB_RENDERER_PORT));
 };
 
 const getFreePort = (port, cb) => {
@@ -52,18 +47,8 @@ const getFreePort = (port, cb) => {
 	});
 };
 
-const mainWindow = (port) => {
-	holdMainWindowOnMemory = new BrowserWindow({
-		height: 420,
-		width: 360,
-	});
-	holdMainWindowOnMemory.loadURL(getWindowURL("", EGB_RENDERER_PORT));
-	const menu = mainWindowMenu(holdAboutWindowOnMemory, starWindow);
-	holdMainWindowOnMemory.setMenu(menu);
-};
-
 app.on("ready", () => {
-	getFreePort(30000, mainWindow);
+	getFreePort(30000, holdMainWindowOnMemory);
 });
 
 app.on("window-all-closed", () => {

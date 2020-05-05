@@ -10,6 +10,8 @@ const { getWindowURL, findPort } = require("./utils");
 const window = require("./module/window");
 const applicationMenu = require("./module/applicationMenu");
 
+let EGB_RENDERER_PORT;
+
 let holdMainWindowOnMemory;
 let holdAboutWindowOnMemory;
 let holdStarWindowOnMemory;
@@ -25,7 +27,7 @@ const aboutWindow = () => {
 			height: 200,
 			width: 600,
 		},
-		getWindowURL("about")
+		getWindowURL("about", EGB_RENDERER_PORT)
 	);
 };
 
@@ -35,7 +37,7 @@ const starWindow = () => {
 			height: 300,
 			width: 500,
 		},
-		getWindowURL("star")
+		getWindowURL("star", EGB_RENDERER_PORT)
 	);
 };
 
@@ -48,6 +50,7 @@ const getFreePort = (port, cb) => {
 		getFreePort(port + 1);
 	});
 	connection.on("error", () => {
+		EGB_RENDERER_PORT = port;
 		http
 			.createServer((req, res) => {
 				req
@@ -57,7 +60,7 @@ const getFreePort = (port, cb) => {
 					.resume();
 			})
 			.listen(port);
-		cb(port);
+		cb();
 	});
 };
 
@@ -67,7 +70,7 @@ const init = (port) => {
 			height: 420,
 			width: 360,
 		},
-		getWindowURL("", port)
+		getWindowURL("", EGB_RENDERER_PORT)
 	);
 	const menu = applicationMenu(aboutWindow, starWindow);
 	Menu.setApplicationMenu(menu);

@@ -8,23 +8,24 @@ const starWindow = require("./window/star-window");
 
 const START_LOOKING_FOR_PORT_FROM = 30000;
 
-const config = {
-	port: null,
-	connection: null,
+let holdAboutWindowOnMemory;
+let holdStarWindowOnMemory;
+let holdMainWindowOnMemory;
+
+const init = async () => {
+	const { port, connection } = await server(START_LOOKING_FOR_PORT_FROM);
+	holdAboutWindowOnMemory = aboutWindow.bind(null, port);
+	holdStarWindowOnMemory = starWindow.bind(null, port);
+	holdMainWindowOnMemory = mainWindow(port, [
+		holdAboutWindowOnMemory,
+		holdStarWindowOnMemory,
+	]);
+	app.on("window-all-closed", () => {
+		connection.destroy();
+		app.quit();
+	});
 };
 
-let holdAboutWindowOnMemory = aboutWindow.bind(null, config.port);
-let holdStarWindowOnMemory = starWindow.bind(null, config.port);
-let holdMainWindowOnMemory = mainWindow.bind(null, config.port, [
-	holdAboutWindowOnMemory,
-	holdStarWindowOnMemory,
-]);
-
 app.on("ready", () => {
-	server(START_LOOKING_FOR_PORT_FROM, config, holdMainWindowOnMemory);
-});
-
-app.on("window-all-closed", () => {
-	config.connection.destroy();
-	app.quit();
+	init();
 });

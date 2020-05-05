@@ -8,23 +8,17 @@ const { getWindowURL, findPort } = require("./utils");
 
 const mainWindowMenu = require("./menu/main-window-menu");
 
+const aboutWindow = require("./window/about-window");
+
 let EGB_RENDERER_PORT;
 let SERVER_CONNECTION;
 
 let holdMainWindowOnMemory;
-let holdAboutWindowOnMemory;
+let holdAboutWindowOnMemory = aboutWindow.bind(null, EGB_RENDERER_PORT);
 let holdStarWindowOnMemory;
 
 const getPort = async () => {
 	const port = await findPort(30000, 40000);
-};
-
-const aboutWindow = () => {
-	holdAboutWindowOnMemory = new BrowserWindow({
-		height: 200,
-		width: 600,
-	});
-	holdAboutWindowOnMemory.loadURL(getWindowURL("about", EGB_RENDERER_PORT));
 };
 
 const starWindow = () => {
@@ -64,7 +58,7 @@ const mainWindow = (port) => {
 		width: 360,
 	});
 	holdMainWindowOnMemory.loadURL(getWindowURL("", EGB_RENDERER_PORT));
-	const menu = mainWindowMenu(aboutWindow, starWindow);
+	const menu = mainWindowMenu(holdAboutWindowOnMemory, starWindow);
 	holdMainWindowOnMemory.setMenu(menu);
 };
 

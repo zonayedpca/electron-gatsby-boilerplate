@@ -6,7 +6,7 @@ import gatsbyLogo from "../assets/images/gatsby.svg";
 import electronLogo from "../assets/images/electron.svg";
 import Counter from "../components/Counter";
 
-export default () => {
+const Index = () => {
 	return (
 		<Layout>
 			<div style={{ textAlign: "center" }}>
@@ -28,3 +28,5 @@ export default () => {
 		</Layout>
 	);
 };
+
+export default Index;

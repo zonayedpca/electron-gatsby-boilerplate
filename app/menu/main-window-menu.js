@@ -1,10 +1,9 @@
-const { Menu, shell } = require("electron");
+const { app, Menu, shell } = require("electron");
 const { is } = require("electron-util");
 
 const isMac = is.macos;
 
 const template = (aboutWindow, starWindow) => [
-	// { role: 'appMenu' }
 	...(isMac
 		? [
 				{
@@ -23,12 +22,10 @@ const template = (aboutWindow, starWindow) => [
 				},
 		  ]
 		: []),
-	// { role: 'fileMenu' }
 	{
 		label: "File",
 		submenu: [isMac ? { role: "close" } : { role: "quit" }],
 	},
-	// { role: 'editMenu' }
 	{
 		label: "Edit",
 		submenu: [
@@ -52,7 +49,6 @@ const template = (aboutWindow, starWindow) => [
 				: [{ role: "delete" }, { type: "separator" }, { role: "selectAll" }]),
 		],
 	},
-	// { role: 'viewMenu' }
 	{
 		label: "View",
 		submenu: [

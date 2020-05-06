@@ -7,14 +7,19 @@
 			"jsx": true
 		}
 	},
+	"extends": ["eslint:recommended", "plugin:react/recommended"],
 	"rules": {
 		"semi": 2,
 		"eqeqeq": "off",
 		"curly": "error",
-		"quotes": ["error", "double"]
+		"quotes": ["error", "double"],
+		"no-unused-labels": "warn",
+		"no-mixed-spaces-and-tabs": "off",
+		"react/prop-types": "off"
 	},
 	"env": {
 		"browser": true,
-		"node": true
+		"node": true,
+		"es6": true
 	}
 }

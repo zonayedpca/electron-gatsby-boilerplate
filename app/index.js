@@ -10,6 +10,7 @@ const START_LOOKING_FOR_PORT_FROM = 30000;
 
 let holdAboutWindowOnMemory;
 let holdStarWindowOnMemory;
+// eslint-disable-next-line
 let holdMainWindowOnMemory;
 
 const init = async () => {
